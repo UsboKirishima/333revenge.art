@@ -4,7 +4,7 @@
 }
 
 body {
-    background-image: url(https://img.freepik.com/free-photo/gloomy-ghost-standing-overpass-forest_23-2147905081.jpg?t=st=1716411397~exp=1716414997~hmac=06f611d34ef9d177b4d116820ba71df40c12f36af149e5afc79c3c3651efbf0e&w=4900);
+    background-image: url(/res/back.jpg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -14,7 +14,7 @@ body {
 .container {
     width: 100%;
     height: 100vh;
-    background-color: rgba(0,0,0,.95)
+    background-color: rgba(0,0,0,.75)
 }
 
 .navbar {
@@ -32,4 +32,15 @@ body {
 .logo:hover {
 	transform: scale(0.95);
     transition: 500ms;
+}
+
+.links {
+    max-width: 30%;
+    min-width: 20%;
+    background-color: rgb(32, 32, 32);
+    margin: auto;
+    display: flex;
+    align-items: center;
+    padding: 2%;
+    border-radius: 50px;
 }
