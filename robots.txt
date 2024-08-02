@@ -1,0 +1,13 @@
+User-agent: *
+
+Allow: /res/icon.svg
+Allow: /res/bg1.jpeg
+Allow: /res/logo.png
+Allow: /th.png
+Allow: /script.js
+Allow: /middleware.js
+Allow: /README.md 
+Allow: /package.json
+Allow: /.gitignore
+Allow: /style.css
+Allow: /yarn.lock
