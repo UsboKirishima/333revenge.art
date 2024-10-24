@@ -301,6 +301,7 @@ ul.breadcrumb li button:hover {
 
     .card {
         margin-top: 4%;
+        width: clamp(100%, 35vmin, 500px);
     }
 }
 
