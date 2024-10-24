@@ -201,6 +201,7 @@ ul.breadcrumb li button:hover {
 
 .cards {
     display: flex;
+    flex-wrap: wrap;
     place-items: center;
     min-height: 50vh;
     width: 100%;
@@ -208,7 +209,7 @@ ul.breadcrumb li button:hover {
 
 .card {
     --blur: 16px;
-    --size: clamp(300px, 35vmin, 500px);
+    --size: clamp(230px, 35vmin, 500px);
     width: var(--size);
     aspect-ratio: 4 / 3;
     position: relative;
@@ -217,6 +218,7 @@ ul.breadcrumb li button:hover {
     color: #000;
     transform: translateZ(0);
     margin-right: 3%;
+    margin-top: 3%;
 }
 
 .card__img {
@@ -352,10 +354,9 @@ ul.breadcrumb li button:hover {
 footer {
     position: relative;
     bottom: 0;
-    margin-top: 5%;
-    margin-left: 20%;
-    margin-right: 20%;
-    margin-bottom: 5%;
+    margin-top: 10%;
+    margin-left: 3%;
+    margin-right: 3%;
 }
 
 .footer_container {
