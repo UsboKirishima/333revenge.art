@@ -15,6 +15,8 @@ function goHome() {
 
 document.addEventListener('DOMContentLoaded', () => {
 
+    main();
+
     const homeDescription = document.getElementById('homeDesc')
     const projectsDescription = document.getElementById('projectsDesc')
     const skillsDescription = document.getElementById('skillsDesc')
