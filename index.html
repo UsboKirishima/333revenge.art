@@ -47,6 +47,9 @@
 </head>
 
 <body>
+  <audio id="backgroundMusic" loop autoplay>
+    <source src="res/16marzo2003.mp3" type="audio/mpeg">
+  </audio>
   <main class="container">
     <section class="top">
       <nav class="navbar">
@@ -62,6 +65,11 @@
           <li><button id="projectsButton">projects</button></li>
           <li><button id="skillsButton">skills</button></li>
           <li><button id="homiesButton">homies</button></li>
+          <li><button id="muteButton" class="mute-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+              <path fill="currentColor" d="M11 5L6 9H2v6h4l5 4V5zM15.54 8.46a5 5 0 0 1 0 7.07M19 6a8 8 0 0 1 0 12"/>
+            </svg>
+          </button></li>
         </ul>
       </nav>
     </section>
