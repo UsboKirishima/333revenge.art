@@ -1,8 +1,11 @@
 User-agent: *
 
+Allow: /index.html
+Allow: /404.html
 Allow: /res/icon.svg
 Allow: /res/bg1.jpeg
 Allow: /res/logo.png
+Allow: /res/*.*
 Allow: /th.png
 Allow: /script.js
 Allow: /README.md 

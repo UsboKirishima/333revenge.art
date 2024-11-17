@@ -170,7 +170,7 @@ ul.breadcrumb li button:hover {
     }
 }
 
-.homeBox {}
+/*.homeBox {}*/
 
 .homeName {
     color: #fff;
@@ -315,7 +315,7 @@ ul.breadcrumb li button:hover {
     grid-template-columns: auto auto auto;
 }
 
-.skills-item {}
+/*.skills-item {} */
 
 .skills-item h3 {
     font-weight: 500;
