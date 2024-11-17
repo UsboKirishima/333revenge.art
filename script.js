@@ -3,7 +3,7 @@ let isLogoShowed = true;
 
 function main() {
     setInterval(function () {
-        logo.style = isLogoShowed ? 'filter: sepia(25%)' : 'finter: invert(1)';
+        logo.style = isLogoShowed ? 'filter: sepia(25%)' : 'filter: invert(1)';
         isLogoShowed = !isLogoShowed;
         //console.log(isLogoShowed)
     }, 1000)
@@ -38,6 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
         homiesDescription.classList.remove('active')
 
         if (page === 'home') {
+            history.pushState(null, '', '/home');
             title.innerHTML = 'About Me'
             breadcrumb.innerHTML = String.raw`
         <li><button onclick="goHome()">home</button></li>
@@ -45,6 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
         `
             homeDescription.classList.add('active');
         } else if (page === 'projects') {
+            history.pushState(null, '', '/projects');
             breadcrumb.innerHTML = String.raw`
         <li><button onclick="goHome()">home</button></li>
         <li><button>projects</button></li>
@@ -52,6 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
             projectsDescription.classList.add('active');
             title.innerHTML = 'Projects'
         } else if (page === 'skills') {
+            history.pushState(null, '', '/skills');
             breadcrumb.innerHTML = String.raw`
         <li><button onclick="goHome()">home</button></li>
         <li><button>skills</button></li>
@@ -59,6 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
             skillsDescription.classList.add('active')
             title.innerHTML = 'Skills'
         } else if (page === 'homies') {
+            history.pushState(null, '', '/homies');
             breadcrumb.innerHTML = String.raw`
         <li><button onclick="goHome()">home</button></li>
         <li><button>homies</button></li>
@@ -66,6 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
             homiesDescription.classList.add('active')
             title.innerHTML = 'Homies';
         } else {
+            history.pushState(null, '', '/home');
             homeDescription.classList.add('active');
         }
     }
