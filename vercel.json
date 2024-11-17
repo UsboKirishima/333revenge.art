@@ -1,0 +1,31 @@
+{
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "/404",
+            "status": 404
+        }
+    ],
+    "rewrites": [
+        {
+            "source": "/home",
+            "destination": "/"
+        },
+        {
+            "source": "/projects",
+            "destination": "/"
+        },
+        {
+            "source": "/skills",
+            "destination": "/"
+        },
+        {
+            "source": "/about",
+            "destination": "/"
+        },
+        {
+            "source": "/contact",
+            "destination": "/"
+        }
+    ]
+}
