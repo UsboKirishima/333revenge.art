@@ -5,26 +5,80 @@
     margin: 0;
 }
 
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
 body {
-    /*background-image: url(/res/bg1.jpeg);*/
-    background-color: #000;
+    background: linear-gradient(45deg, #000000, #424242, #000000);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite, fadeIn 1s ease-out;
     background-repeat: no-repeat;
     background-position: center;
-    background-size: cover;
+    min-height: 100vh;
+}
+
+main {
+    
+}
+
+.all {
+    background-color: rgba(0, 0, 0, .75);
+}
+
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 .container {
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, .75);
+    
     position: relative;
     display: block;
     margin-bottom: 5%;
+    animation: fadeIn 1.2s ease-out;
 }
 
 .navbar {
     display: flex;
-    background-color: #000;
+    animation: slideIn 1s ease-out;
 }
 
 @media only screen and (max-width: 600px) {
@@ -48,12 +102,12 @@ body {
     filter: invert(1);
     width: 30%;
     padding: 3%;
-    transition: 500ms;
+    transition: all 0.5s ease;
 }
 
 .logo:hover {
-    transform: scale(0.95);
-    transition: 500ms;
+    transform: scale(0.95) rotate(2deg);
+    filter: invert(0.8);
 }
 
 .links {
@@ -65,12 +119,16 @@ body {
     align-items: center;
     padding: 2%;
     border-radius: 50px;
+    transition: transform 0.3s ease;
+}
+
+.links:hover {
+    transform: translateY(-2px);
 }
 
 .websitePath {
-    background: #000000;
+    animation: slideIn 0.8s ease-out;
 }
-
 
 .pages {
     display: flex;
@@ -83,7 +141,15 @@ body {
     text-decoration: none;
     list-style-type: none;
     margin: 10px;
+    animation: fadeIn 0.5s ease-out forwards;
+    opacity: 0;
 }
+
+.pages>li:nth-child(1) { animation-delay: 0.2s; }
+.pages>li:nth-child(2) { animation-delay: 0.4s; }
+.pages>li:nth-child(3) { animation-delay: 0.6s; }
+.pages>li:nth-child(4) { animation-delay: 0.8s; }
+.pages>li:nth-child(5) { animation-delay: 1s; }
 
 .pages>li>button {
     padding: 0;
@@ -96,21 +162,22 @@ body {
     font-optical-sizing: auto;
     font-weight: 600;
     font-style: normal;
-    transition: 0.3s;
+    transition: all 0.3s ease;
 }
 
 .pages>li>button:hover {
-    transition: 0.3s;
     color: #ffffff86;
+    transform: translateY(-2px);
+    text-shadow: 0 0 8px rgba(255,255,255,0.5);
 }
 
 ul.breadcrumb {
     padding: 10px 16px;
     list-style: none;
-    background-color: #000000;
     margin-left: 20%;
     margin-top: 5%;
     margin-right: 20%;
+    animation: fadeIn 1s ease-out;
 }
 
 ul.breadcrumb li {
@@ -131,7 +198,7 @@ ul.breadcrumb li+li:before {
 ul.breadcrumb li button {
     color: #ffffffb0;
     text-decoration: none;
-    transition: 0.5s;
+    transition: all 0.5s ease;
     background: #000;
     border: 0px;
     font-family: "Quicksand", sans-serif;
@@ -142,10 +209,10 @@ ul.breadcrumb li button {
 }
 
 ul.breadcrumb li button:hover {
-    color: #ffffff86;
-    transition: 0.3s;
+    color: #ffffff;
+    transform: translateY(-1px);
+    text-shadow: 0 0 8px rgba(255,255,255,0.3);
 }
-
 
 .homeIndex {
     margin-left: 20%;
@@ -155,6 +222,7 @@ ul.breadcrumb li button:hover {
     font-optical-sizing: auto;
     font-weight: 500;
     font-style: normal;
+    animation: fadeIn 1.5s ease-out;
 }
 
 .mute-btn {
@@ -163,15 +231,15 @@ ul.breadcrumb li button:hover {
     color: rgba(255, 255, 255, 0.65);
     cursor: pointer;
     padding: 8px;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
     display: flex;
     align-items: center;
 }
 
 .mute-btn:hover {
     color: rgba(255, 255, 255, 0.85);
+    transform: scale(1.1);
 }
-
 
 @media only screen and (max-width: 600px) {
     .homeIndex {
@@ -183,31 +251,66 @@ ul.breadcrumb li button:hover {
         margin-top: 5%;
         margin-right: 0%;
     }
-}
 
-/*.homeBox {}*/
+    #mutebtn_ {
+        display: none;
+    }
+}
 
 .homeName {
     color: #fff;
     font-size: 1.7rem;
     font-weight: 500;
+    animation: fadeIn 1s ease-out;
 }
 
 #homeDesc {
     margin-top: 3%;
+    animation: fadeIn 1.2s ease-out;
 }
 
 .description {
     margin-bottom: 20px;
     color: #ffffffb2;
+    transition: all 0.3s ease;
+}
+
+.description:hover {
+    color: #ffffff;
+    transform: translateX(5px);
 }
 
 .description a {
     color: #ffffffd3;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.description a:hover {
+    color: #ffffff;
+}
+
+.description a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    bottom: -2px;
+    left: 0;
+    background-color: #ffffff;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease;
+}
+
+.description a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
 }
 
 .page {
     display: none;
+    animation: fadeIn 0.5s ease-out;
 }
 
 .active {
@@ -234,6 +337,12 @@ ul.breadcrumb li button:hover {
     transform: translateZ(0);
     margin-right: 3%;
     margin-top: 3%;
+    transition: all 0.5s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
 }
 
 .card__img {
@@ -241,7 +350,7 @@ ul.breadcrumb li button:hover {
     height: 100%;
     object-fit: cover;
     transform: scale(calc(1 + (var(--hover, 0) * 0.25))) rotate(calc(var(--hover, 0) * -5deg));
-    transition: transform 0.2s;
+    transition: transform 0.3s ease;
 }
 
 .card__footer {
@@ -260,6 +369,12 @@ ul.breadcrumb li button:hover {
     height: 30%;
     align-content: center;
     color: #ffffffa6;
+    transition: all 0.3s ease;
+}
+
+.card:hover .card__footer {
+    height: 35%;
+    background: hsla(0, 0%, 11%, 0.8);
 }
 
 .card__action {
@@ -274,13 +389,17 @@ ul.breadcrumb li button:hover {
     place-items: center;
     border-radius: 0.5rem;
     background: hsla(0, 0%, 30%, 0.5);
-    /*   backdrop-filter: blur(calc(var(--blur) * 0.5)); */
-    transition: transform 0.2s;
+    transition: all 0.3s ease;
 }
 
 .card__action svg {
     aspect-ratio: 1;
     width: 50%;
+    transition: transform 0.3s ease;
+}
+
+.card__action:hover svg {
+    transform: scale(1.2);
 }
 
 .card__footer span:nth-of-type(1) {
@@ -289,20 +408,34 @@ ul.breadcrumb li button:hover {
     display: flex;
     justify-content: left;
     align-items: center;
+    transition: transform 0.3s ease;
+}
+
+.card__footer span:nth-of-type(1):hover {
+    transform: translateX(5px);
 }
 
 .card__footer span:nth-of-type(1) svg {
     margin-left: 5px;
+    transition: transform 0.3s ease;
+}
+
+.card__footer span:nth-of-type(1):hover svg {
+    transform: translateX(3px);
 }
 
 .card__footer span:nth-of-type(2) {
     font-size: calc(var(--size) * 0.045);
+    transition: opacity 0.3s ease;
+}
+
+.card:hover .card__footer span:nth-of-type(2) {
+    opacity: 0.8;
 }
 
 .card:is(:hover, :focus-visible) {
     --hover: 1;
 }
-
 
 @media only screen and (max-width: 600px) {
     .cards {
@@ -313,9 +446,8 @@ ul.breadcrumb li button:hover {
         width: 100%;
     }
 
-
     .card {
-        margin-top: 4%;
+        margin-top: 8%;
         width: clamp(100%, 35vmin, 500px);
     }
 }
@@ -323,6 +455,7 @@ ul.breadcrumb li button:hover {
 #skillsDesc {
     color: #ffffffb2;
     margin-top: 3%;
+    animation: fadeIn 1s ease-out;
 }
 
 .skillsContainer {
@@ -330,12 +463,16 @@ ul.breadcrumb li button:hover {
     grid-template-columns: auto auto auto;
 }
 
-/*.skills-item {} */
-
 .skills-item h3 {
     font-weight: 500;
     font-size: 18px;
     color: #fff;
+    transition: all 0.3s ease;
+}
+
+.skills-item h3:hover {
+    transform: translateX(5px);
+    text-shadow: 0 0 8px rgba(255,255,255,0.5);
 }
 
 .skills-item ul {
@@ -347,14 +484,13 @@ ul.breadcrumb li button:hover {
 .skills-item>ul>li>a {
     text-decoration: underline;
     color: #ffffffd3;
-    transition: 0.3s;
+    transition: all 0.3s ease;
 }
 
 .skills-item>ul>li>a:hover {
-    transition: 0.3s;
-    color: #ffffff8c;
+    color: #ffffff;
+    text-shadow: 0 0 8px rgba(255,255,255,0.5);
 }
-
 
 @media only screen and (max-width: 600px) {
     .skillsContainer {
@@ -365,14 +501,17 @@ ul.breadcrumb li button:hover {
 #homiesDesc {
     color: #ffffffb2;
     margin-top: 3%;
+    animation: fadeIn 1s ease-out;
 }
 
 footer {
     position: relative;
     bottom: 0;
-    margin-top: 10%;
-    margin-left: 3%;
-    margin-right: 3%;
+    padding-top: 10%;
+    padding-left: 3%;
+    padding-right: 3%;
+    animation: fadeIn 1.5s ease-out;
+    margin: 0;
 }
 
 .footer_container {
@@ -387,13 +526,14 @@ footer {
 
 .socials a {
     text-decoration: none;
-    transition: 0.3s;
+    transition: all 0.3s ease;
     margin-right: 5px;
+    display: inline-block;
 }
 
 .socials a:hover {
-    opacity: 75%;
-    transition: 0.3s;
+    opacity: 0.75;
+    transform: translateY(-3px);
 }
 
 .copyright {
@@ -407,8 +547,12 @@ footer {
     font-size: 14px;
     margin-bottom: 20px;
     margin-right: 10px;
+    transition: all 0.3s ease;
 }
 
+.copyright:hover {
+    color: #ffffff;
+}
 
 @media only screen and (max-width: 600px) {
     .footer_container {
@@ -416,11 +560,10 @@ footer {
     }
 
     footer {
-
-        margin-top: 5%;
-        margin-left: 0%;
-        margin-right: 0%;
-        margin-bottom: 5%;
+        padding-top: 5%;
+        padding-left: 0%;
+        padding-right: 0%;
+        padding-bottom: 5%;
     }
 
     .socials {
