@@ -1,18 +1,11 @@
 {
-    "routes": [
-        {
-            "src": "/(.*)",
-            "dest": "/404",
-            "status": 404
-        }
-    ],
     "rewrites": [
         {
             "source": "/home",
             "destination": "/"
         },
         {
-            "source": "/projects",
+            "source": "/projects", 
             "destination": "/"
         },
         {
@@ -26,6 +19,13 @@
         {
             "source": "/contact",
             "destination": "/"
+        }
+    ],
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "/404",
+            "status": 404
         }
     ]
 }

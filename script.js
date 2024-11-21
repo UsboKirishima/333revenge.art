@@ -60,50 +60,54 @@ document.addEventListener('DOMContentLoaded', () => {
     const title = document.getElementById('titlePage');
 
 
-    function showPage(page) {
+    function showPage(page, updateHistory = true) {
         homeDescription.classList.remove('active');
         projectsDescription.classList.remove('active');
-        skillsDescription.classList.remove('active')
-        homiesDescription.classList.remove('active')
+        skillsDescription.classList.remove('active');
+        homiesDescription.classList.remove('active');
+
+        if (updateHistory) {
+            history.pushState({ page }, '', `/${page}`);
+        }
 
         if (page === 'home') {
-            history.pushState(null, '', '/home');
-            title.innerHTML = 'About Me'
+            title.innerHTML = 'About Me';
             breadcrumb.innerHTML = String.raw`
-        <li><button onclick="goHome()">home</button></li>
-        <li><button>about me</button></li>
-        `
+                <li><button onclick="goHome()">home</button></li>
+                <li><button>about me</button></li>
+            `;
             homeDescription.classList.add('active');
         } else if (page === 'projects') {
-            history.pushState(null, '', '/projects');
             breadcrumb.innerHTML = String.raw`
-        <li><button onclick="goHome()">home</button></li>
-        <li><button>projects</button></li>
-        `
+                <li><button onclick="goHome()">home</button></li>
+                <li><button>projects</button></li>
+            `;
             projectsDescription.classList.add('active');
-            title.innerHTML = 'Projects'
+            title.innerHTML = 'Projects';
         } else if (page === 'skills') {
-            history.pushState(null, '', '/skills');
             breadcrumb.innerHTML = String.raw`
-        <li><button onclick="goHome()">home</button></li>
-        <li><button>skills</button></li>
-        `
-            skillsDescription.classList.add('active')
-            title.innerHTML = 'Skills'
+                <li><button onclick="goHome()">home</button></li>
+                <li><button>skills</button></li>
+            `;
+            skillsDescription.classList.add('active');
+            title.innerHTML = 'Skills';
         } else if (page === 'homies') {
-            history.pushState(null, '', '/homies');
             breadcrumb.innerHTML = String.raw`
-        <li><button onclick="goHome()">home</button></li>
-        <li><button>homies</button></li>
-        `
-            homiesDescription.classList.add('active')
+                <li><button onclick="goHome()">home</button></li>
+                <li><button>homies</button></li>
+            `;
+            homiesDescription.classList.add('active');
             title.innerHTML = 'Homies';
         } else {
-            history.pushState(null, '', '/home');
             homeDescription.classList.add('active');
         }
     }
 
+    window.addEventListener('popstate', (event) => {
+        if (event.state && event.state.page) {
+            showPage(event.state.page, false);
+        }
+    });
 
     homeButton.addEventListener('click', () => showPage('home'))
     projectsButton.addEventListener('click', () => showPage('projects'))
