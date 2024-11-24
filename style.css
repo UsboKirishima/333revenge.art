@@ -4,6 +4,7 @@
     padding: 0;
     margin: 0;
 }
+
 ::-webkit-scrollbar {
     width: 10px;
     background: rgba(0, 0, 0);
@@ -28,7 +29,6 @@
 ::-webkit-scrollbar-corner {
     background: transparent;
 }
-
 
 @keyframes fadeIn {
     from {
@@ -69,10 +69,6 @@ body {
     background-repeat: no-repeat;
     background-position: center;
     min-height: 100vh;
-}
-
-main {
-    
 }
 
 .all {

@@ -1,12 +1,12 @@
 let logo = document.querySelector('.logo');
 let isLogoShowed = true;
 
-function main() {
+/*function main() {
     setInterval(function () {
         logo.style.filter = isLogoShowed ? 'sepia(25%)' : 'invert(1)';
         isLogoShowed = !isLogoShowed;
     }, 1000)
-}
+}*/
 
 function goHome() {
     window.open('/', '_self')
@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    main();
+    //main();
 
     const homeDescription = document.getElementById('homeDesc')
     const projectsDescription = document.getElementById('projectsDesc')
@@ -55,6 +55,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const projectsButton = document.getElementById('projectsButton');
     const skillsButton = document.getElementById('skillsButton');
     const homiesButton = document.getElementById('homiesButton');
+
+    const logoButton = document.getElementById('homiesButton');
 
     const breadcrumb = document.getElementById('breadcrumb')
     const title = document.getElementById('titlePage');
@@ -113,6 +115,8 @@ document.addEventListener('DOMContentLoaded', () => {
     projectsButton.addEventListener('click', () => showPage('projects'))
     skillsButton.addEventListener('click', () => showPage('skills'))
     homiesButton.addEventListener('click', () => showPage('homies'))
+
+    logoButton.addEventListener('click', () => showPage('home'))
 
     const muteButton = document.getElementById('muteButton');   
     muteButton.onclick = () => {
