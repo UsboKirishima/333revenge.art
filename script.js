@@ -116,7 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
     skillsButton.addEventListener('click', () => showPage('skills'))
     homiesButton.addEventListener('click', () => showPage('homies'))
 
-    logoButton.addEventListener('click', () => showPage('home'))
+    //logoButton.addEventListener('click', () => showPage('home'))
 
     const muteButton = document.getElementById('muteButton');   
     muteButton.onclick = () => {
